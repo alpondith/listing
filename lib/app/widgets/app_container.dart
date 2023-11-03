@@ -8,15 +8,11 @@ enum ContainerType { REGULAR, FLUID }
 class AppContainer extends StatelessWidget {
   final Widget child;
   final ContainerType type;
-  final double? height;
-  final double? minHeight;
 
   const AppContainer({
     super.key,
     required this.child,
     this.type = ContainerType.REGULAR,
-    this.height,
-    this.minHeight,
   });
 
   @override
@@ -26,18 +22,16 @@ class AppContainer extends StatelessWidget {
     double paddingBottom = 16; // reason : helps to show paginate loader.
     double maxWidth = 1000;
 
-    if (type == ContainerType.REGULAR &&
-        MediaQuery.of(context).size.width > maxWidth) {
+    if (type == ContainerType.REGULAR && MediaQuery.of(context).size.width > maxWidth) {
       hPadding = (MediaQuery.of(context).size.width - maxWidth) / 2;
     }
 
     return Container(
-      height: height,
+      height: Get.height,
       // color: Colors.red.shade100,
-      padding:
-          EdgeInsets.fromLTRB(hPadding, paddingTop, hPadding, paddingBottom),
+      padding: EdgeInsets.fromLTRB(hPadding, paddingTop, hPadding, paddingBottom),
       constraints: BoxConstraints(
-        minHeight: Get.height - 72,
+        minHeight: Get.height,
       ),
       child: child,
     );
