@@ -2,18 +2,19 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-import '../../../core/util/space_manager.dart';
-import '../../../widgets/app_container.dart';
-import '../../../widgets/atoms/icons.dart';
-import '../../../widgets/elements/loading.dart';
-import '../../../widgets/elements/tiles.dart';
-import '../../../widgets/feedback/empty_feedback.dart';
-import '../../../widgets/feedback/error_feedback.dart';
-import '../components/filter.dart';
-import '../controllers/home_controller.dart';
+import '../../../../core/util/space_manager.dart';
 
-class HomeView extends GetView<HomeController> {
-  const HomeView({Key? key}) : super(key: key);
+import '../../../../widgets/app_container.dart';
+import '../../../../widgets/atoms/icons.dart';
+import '../../../../widgets/elements/loading.dart';
+import '../../../../widgets/elements/tiles.dart';
+import '../../../../widgets/feedback/empty_feedback.dart';
+import '../../../../widgets/feedback/error_feedback.dart';
+import '../components/filter.dart';
+import '../controllers/repository_index_controller.dart';
+
+class RepositoryIndexView extends GetView<RepositoryIndexController> {
+  const RepositoryIndexView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

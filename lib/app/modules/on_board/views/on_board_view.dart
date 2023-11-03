@@ -36,7 +36,7 @@ class OnBoardView extends GetView<OnBoardController> {
             ),
             PrimaryButton(
               label: 'Get Started',
-              onTap: () => Get.offAndToNamed(Routes.HOME),
+              onTap: () => Get.offAndToNamed(Routes.REPOSITORY_INDEX),
             ),
           ],
         ),
