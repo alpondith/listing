@@ -8,11 +8,15 @@ enum ContainerType { REGULAR, FLUID }
 class AppContainer extends StatelessWidget {
   final Widget child;
   final ContainerType type;
+  final double? height;
+  final double? minHeight;
 
   const AppContainer({
     super.key,
     required this.child,
     this.type = ContainerType.REGULAR,
+    this.height,
+    this.minHeight,
   });
 
   @override
@@ -27,11 +31,11 @@ class AppContainer extends StatelessWidget {
     }
 
     return Container(
-      height: Get.height,
+      height: height,
       // color: Colors.red.shade100,
       padding: EdgeInsets.fromLTRB(hPadding, paddingTop, hPadding, paddingBottom),
       constraints: BoxConstraints(
-        minHeight: Get.height,
+        minHeight: Get.height - 72,
       ),
       child: child,
     );

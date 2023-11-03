@@ -23,6 +23,8 @@ class _ParagraphText extends StatelessWidget {
   final double fontSize;
   final double height;
   final TextAlign? textAlign;
+  final int? maxLines;
+  final TextOverflow overflow;
 
   const _ParagraphText(
     this.text, {
@@ -31,6 +33,8 @@ class _ParagraphText extends StatelessWidget {
     required this.fontSize,
     required this.height,
     this.textAlign = TextAlign.start,
+    this.maxLines = 1000,
+    this.overflow = TextOverflow.ellipsis,
   });
 
   @override
@@ -47,6 +51,8 @@ class _ParagraphText extends StatelessWidget {
           letterSpacing: FontManager.TEXT_LETTER_SPACE,
           color: color,
         ),
+        maxLines: maxLines,
+        overflow: overflow,
       ),
     );
   }
@@ -59,12 +65,14 @@ class TinyParagraph extends StatelessWidget {
   final String? text;
   final Color color;
   final TextAlign? textAlign;
+  final int? maxLines;
 
   const TinyParagraph(
     this.text, {
     super.key,
     this.color = FontManager.COLOR,
     this.textAlign,
+    this.maxLines,
   });
 
   @override
@@ -75,6 +83,7 @@ class TinyParagraph extends StatelessWidget {
       fontSize: 12,
       height: 1.667,
       textAlign: textAlign,
+      maxLines: maxLines,
     );
   }
 }
@@ -86,12 +95,14 @@ class SmallParagraph extends StatelessWidget {
   final String? text;
   final Color color;
   final TextAlign? textAlign;
+  final int? maxLines;
 
   const SmallParagraph(
     this.text, {
     super.key,
     this.color = FontManager.COLOR,
     this.textAlign,
+    this.maxLines,
   });
 
   @override
@@ -102,6 +113,7 @@ class SmallParagraph extends StatelessWidget {
       fontSize: 14,
       height: 1.429,
       textAlign: textAlign,
+      maxLines: maxLines,
     );
   }
 }
@@ -113,12 +125,14 @@ class MediumParagraph extends StatelessWidget {
   final String? text;
   final Color color;
   final TextAlign? textAlign;
+  final int? maxLines;
 
   const MediumParagraph(
     this.text, {
     super.key,
     this.color = FontManager.COLOR,
     this.textAlign,
+    this.maxLines,
   });
 
   @override
@@ -129,6 +143,7 @@ class MediumParagraph extends StatelessWidget {
       fontSize: 16,
       height: 1.5,
       textAlign: textAlign,
+      maxLines: maxLines,
     );
   }
 }
@@ -140,12 +155,14 @@ class LargeParagraph extends StatelessWidget {
   final String? text;
   final Color color;
   final TextAlign? textAlign;
+  final int? maxLines;
 
   const LargeParagraph(
     this.text, {
     super.key,
     this.color = FontManager.COLOR,
     this.textAlign,
+    this.maxLines,
   });
 
   @override
@@ -156,6 +173,7 @@ class LargeParagraph extends StatelessWidget {
       fontSize: 18,
       height: 1.555,
       textAlign: textAlign,
+      maxLines: maxLines,
     );
   }
 }

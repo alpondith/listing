@@ -1,11 +1,13 @@
 import 'package:get/get.dart';
+import 'package:logger/logger.dart';
 
-import 'auth_api_provider.dart';
+import 'api_provider.dart';
 
 mixin PaginateStateTransition on StateMixin<dynamic> {
   String path = '';
   String? nextPage;
-  List<dynamic>? data = [];
+  int page = 1;
+  List<dynamic> data = [];
 
   final _paginateLoading = false.obs;
   get paginateLoading => _paginateLoading.value;
@@ -17,12 +19,14 @@ mixin PaginateStateTransition on StateMixin<dynamic> {
 
   void load(String path) {
     this.path = path;
-    AuthApiProvider().getResponse(path: path).then(_onSuccess, onError: _onError);
+    nextPage = "$path&page=$page&per_page=10";
+    ApiProvider().getResponse(path: nextPage!).then(_onSuccess, onError: _onError);
   }
 
   Future<void> reload() async {
     change(null, status: RxStatus.loading());
-    data?.clear();
+    data.clear();
+    page = 1;
     load(path);
   }
 
@@ -31,11 +35,12 @@ mixin PaginateStateTransition on StateMixin<dynamic> {
   //*****************************************/
 
   void _onSuccess(response) {
-    if (response['data'].isEmpty) {
+    if (response['items'].isEmpty) {
       change(null, status: RxStatus.empty());
     } else {
-      nextPage = response['links']['next'];
-      data!.isEmpty ? data = response['data'] : data?.addAll(response['data']);
+      page++;
+      nextPage = "$path&page=$page&per_page=10";
+      data.isEmpty ? data = response['items'] : data.addAll(response['items']);
       change(data, status: RxStatus.success());
     }
   }
@@ -49,10 +54,9 @@ mixin PaginateStateTransition on StateMixin<dynamic> {
   Future<void> onTopScroll() async {}
 
   Future<void> onEndScroll() async {
-    if (nextPage != null) {
-      setPaginateLoading = true;
-      await AuthApiProvider().getResponse(path: nextPage!, url: false).then(_onSuccess, onError: _onError);
-      setPaginateLoading = false;
-    }
+    Logger().i(nextPage);
+    setPaginateLoading = true;
+    await ApiProvider().getResponse(path: nextPage!).then(_onSuccess, onError: _onError);
+    setPaginateLoading = false;
   }
 }
