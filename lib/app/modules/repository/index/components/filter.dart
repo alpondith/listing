@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:listing/app/modules/repository/controllers/home_controller.dart';
 
 import '../../../../widgets/atoms/buttons.dart';
 import '../../../../widgets/elements/lists.dart';
+import '../controllers/repository_index_controller.dart';
 
-class Filter extends GetView<HomeController> {
+class Filter extends GetView<RepositoryIndexController> {
   const Filter({super.key});
 
   @override

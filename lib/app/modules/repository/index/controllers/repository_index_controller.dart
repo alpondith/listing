@@ -17,13 +17,4 @@ class RepositoryIndexController extends GetxController with StateMixin<dynamic>,
     path = (value == "DAILY" || value == "HOURLY") ? "$initialPath?filter[wage_type]=$value" : path;
     reload();
   }
-
-  String formatDate(String date) {
-    final createdAt = DateTime.parse(date);
-    final now = DateTime.now();
-    final difference = now.difference(createdAt);
-    final years = difference.inDays ~/ 365;
-    final months = difference.inDays % 365 ~/ 30;
-    return "$years years $months months";
-  }
 }

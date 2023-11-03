@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 
 import '../../../../core/util/space_manager.dart';
 
+import '../../../../data/helpers/date_to_age_calculator.dart';
+import '../../../../routes/app_pages.dart';
 import '../../../../widgets/app_container.dart';
 import '../../../../widgets/atoms/icons.dart';
 import '../../../../widgets/elements/loading.dart';
@@ -43,12 +45,12 @@ class RepositoryIndexView extends GetView<RepositoryIndexController> {
                       children: [
                         Tile(
                           label: "${data?[index]['name']}",
-                          paragraph: "Star : ${data?[index]['stargazers_count']}, Forks : ${data?[index]['forks']}\nAge: ${controller.formatDate(data?[index]['created_at'])}",
+                          paragraph: "Star : ${data?[index]['stargazers_count']}, Forks : ${data?[index]['forks']}\nAge: ${DateToAgeCalculator().handle(data?[index]['created_at'])}",
                           leading: const PrimaryIcon(Icons.arrow_outward_outlined),
                           trailing: const SecondaryIcon(Icons.chevron_right),
                           type: TileType.fill,
                           padding: const EdgeInsets.all(SpaceManager.MEDIUM),
-                          // onTap: () => Get.toNamed(Routes.EMPLOYEE_SHOW, arguments: data[index]['id']),
+                          onTap: () => Get.toNamed(Routes.REPOSITORY_SHOW, arguments: data[index]['full_name']),
                         ),
                       ],
                     ),

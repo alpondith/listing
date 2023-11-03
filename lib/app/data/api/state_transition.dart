@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-import 'auth_api_provider.dart';
+import 'api_provider.dart';
 
 mixin StateTransition on StateMixin<dynamic> {
   String path = '';
@@ -9,7 +9,7 @@ mixin StateTransition on StateMixin<dynamic> {
 
   void load(String path) {
     this.path = path;
-    AuthApiProvider().getResponse(path: path).then(_onSuccess, onError: _onError);
+    ApiProvider().getResponse(path: path).then(_onSuccess, onError: _onError);
   }
 
   Future<void> reload() async {
@@ -18,10 +18,10 @@ mixin StateTransition on StateMixin<dynamic> {
   }
 
   void _onSuccess(response) {
-    if (response['data'].isEmpty) {
+    if (response.isEmpty) {
       change(null, status: RxStatus.empty());
     } else {
-      data = response['data'];
+      data = response;
       change(data, status: RxStatus.success());
     }
   }

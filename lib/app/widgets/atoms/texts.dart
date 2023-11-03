@@ -34,7 +34,7 @@ class _ParagraphText extends StatelessWidget {
     required this.height,
     this.textAlign = TextAlign.start,
     this.maxLines = 1000,
-    this.overflow = TextOverflow.ellipsis,
+    this.overflow = TextOverflow.visible,
   });
 
   @override

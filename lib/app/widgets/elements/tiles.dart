@@ -65,11 +65,11 @@ class Tile extends StatelessWidget {
 
     if (focus == TileFocus.label) {
       labelWidget = MediumLabel(label);
-      paragraphWidget = SmallParagraph(paragraph, maxLines: 2);
+      paragraphWidget = SmallParagraph(paragraph);
     }
 
     if (focus == TileFocus.paragraph) {
-      labelWidget = SmallParagraph(label, maxLines: 2);
+      labelWidget = SmallParagraph(label);
       paragraphWidget = MediumLabel(paragraph);
     }
 
