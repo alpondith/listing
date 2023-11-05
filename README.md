@@ -9,4 +9,8 @@ Clicking on an item from the list navigates to a details page for that repositor
 The repository list and repository details data that are loaded once are saved for offline browsing. This ensures that the user can still browse the data even when they are not connected to the internet.
 
 Features Left: 
-  - Cache the loaded data into local database
+  - Cache the loaded data into a local database
+
+App Summary:
+
+![Gif](https://github.com/alpondith/listing/assets/31237736/c375d330-1769-4ad7-a59f-42fa5449458e)
