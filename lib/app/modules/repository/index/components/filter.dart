@@ -15,45 +15,52 @@ class Filter extends GetView<RepositoryIndexController> {
       onSelected: (v) => controller.filter(v),
       itemBuilder: (BuildContext context) => [
         const PopupMenuItem(
-          value: "ALL",
+          value: "DEFAULT",
           child: FilterOptionList(
-            icon: CupertinoIcons.person_2_fill,
-            text: 'All',
+            icon: CupertinoIcons.circle_filled,
+            text: 'Default',
           ),
         ),
         const PopupMenuItem(
-          value: "Owner",
+          value: "BY_STAR_ASC",
           child: FilterOptionList(
-            icon: CupertinoIcons.person_fill,
-            text: 'Owner',
+            icon: CupertinoIcons.star_fill,
+            text: 'Star Asc',
           ),
         ),
         const PopupMenuItem(
-          value: "MANAGER",
+          value: "BY_STAR_DESC",
           child: FilterOptionList(
-            icon: CupertinoIcons.person,
-            text: 'Manager',
+            icon: CupertinoIcons.star_fill,
+            text: 'Star Desc',
           ),
         ),
         const PopupMenuItem(
-          value: "STAFF",
+          value: "BY_FORK_ASC",
           child: FilterOptionList(
-            icon: CupertinoIcons.person,
-            text: 'Staff',
+            icon: CupertinoIcons.link,
+            text: 'Fork Asc',
           ),
         ),
         const PopupMenuItem(
-          value: "HOURLY",
+          value: "BY_FORK_DESC",
           child: FilterOptionList(
-            icon: CupertinoIcons.alarm_fill,
-            text: 'Hourly waged',
+            icon: CupertinoIcons.link,
+            text: 'Fork Desc',
           ),
         ),
         const PopupMenuItem(
-          value: "DAILY",
+          value: "BY_LATEST",
           child: FilterOptionList(
-            icon: CupertinoIcons.calendar,
-            text: 'Daily waged',
+            icon: CupertinoIcons.layers_alt,
+            text: 'Latest',
+          ),
+        ),
+        const PopupMenuItem(
+          value: "BY_OLDEST",
+          child: FilterOptionList(
+            icon: CupertinoIcons.layers_alt,
+            text: 'Oldest',
           ),
         ),
       ],

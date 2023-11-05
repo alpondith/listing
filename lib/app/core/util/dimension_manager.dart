@@ -15,4 +15,7 @@ class DimensionManager {
 
   // Usecase : Avatar image size
   static const double XLARGE = 64;
+
+  // Usecase : Avatar image size
+  static const double XXLARGE = 96;
 }

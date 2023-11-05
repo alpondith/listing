@@ -13,8 +13,14 @@ class RepositoryIndexController extends GetxController with StateMixin<dynamic>,
   }
 
   filter(dynamic value) {
-    path = (value == "ALL") ? initialPath : "$initialPath?filter[role]=$value";
-    path = (value == "DAILY" || value == "HOURLY") ? "$initialPath?filter[wage_type]=$value" : path;
+    path = (value == "DEFAULT") ? initialPath : initialPath;
+    path = (value == "BY_STAR_ASC") ? "$initialPath&sort=stars&order=desc" : path;
+    path = (value == "BY_STAR_DESC") ? "$initialPath&sort=stars&order=asc" : path;
+    path = (value == "BY_FORK_ASC") ? "$initialPath&sort=forks&order=desc" : path;
+    path = (value == "BY_FORK_DESC") ? "$initialPath&sort=forks&order=asc" : path;
+    path = (value == "BY_LATEST") ? "$initialPath&sort=created_at&direction=desc" : path;
+    path = (value == "BY_OLDEST") ? "$initialPath&sort=created_at&direction=asc" : path;
+
     reload();
   }
 }
