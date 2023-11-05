@@ -1,16 +1,12 @@
 # listing
 
-A new Flutter project.
+This is a Flutter application that fetches a list of repositories from the GitHub API using "Flutter" as the query keyword. The fetched data is stored in a local database, allowing the app to be used in offline mode. The fetching of the repository list is paginated, loading 10 new items each time the user scrolls. The app is designed to refresh the data from the API no more frequently than once every 30 minutes.
 
-## Getting Started
+The home page of the app displays the list of repositories. The list can be sorted by either the last updated date-time or star count, and the selected sorting option persists across app sessions.
 
-This project is a starting point for a Flutter application.
+Clicking on an item from the list navigates to a details page for that repository. The details page shows the repo owner's name, photo, the repository's description, last update date-time in a specific format, and any other fields of interest.
 
-A few resources to get you started if this is your first Flutter project:
+The repository list and repository details data that are loaded once are saved for offline browsing. This ensures that the user can still browse the data even when they are not connected to the internet.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Features Left: 
+  - Cache the loaded data into local database
