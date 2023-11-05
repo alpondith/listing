@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-import '../../../../core/util/dimension_manager.dart';
 import '../../../../core/util/space_manager.dart';
 import '../../../../data/helpers/date_formatter.dart';
 import '../../../../data/helpers/date_to_age_calculator.dart';

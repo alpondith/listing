@@ -18,6 +18,8 @@ class RepositoryIndexController extends GetxController with StateMixin<dynamic>,
     path = (value == "BY_STAR_DESC") ? "$initialPath&sort=stars&order=asc" : path;
     path = (value == "BY_FORK_ASC") ? "$initialPath&sort=forks&order=desc" : path;
     path = (value == "BY_FORK_DESC") ? "$initialPath&sort=forks&order=asc" : path;
+
+    // TODO: find the correct path for this filter (it's not working)
     path = (value == "BY_LATEST") ? "$initialPath&sort=created_at&direction=desc" : path;
     path = (value == "BY_OLDEST") ? "$initialPath&sort=created_at&direction=asc" : path;
 
