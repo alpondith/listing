@@ -8,7 +8,7 @@ import '../util/shadow_manager.dart';
 
 class ThemeAppBar {
   static final data = AppBarTheme(
-    centerTitle: true,
+    centerTitle: false,
     color: ColorManager.SURFACE,
     elevation: 0,
     iconTheme: IconThemeData(

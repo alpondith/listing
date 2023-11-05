@@ -125,7 +125,7 @@ class ActionButton extends StatelessWidget {
     this.label = '',
     this.icon,
     this.onTap,
-    this.color = Colors.white,
+    this.color = ColorManager.TONE,
     this.labelColor = ColorManager.ON_TONE,
   });
 
