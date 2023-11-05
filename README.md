@@ -11,6 +11,6 @@ The repository list and repository details data that are loaded once are saved f
 Features Left: 
   - Cache the loaded data into a local database
 
-App Summary:
+App Summary video:
 
-![Gif](https://github.com/alpondith/listing/assets/31237736/c375d330-1769-4ad7-a59f-42fa5449458e)
+<img src="https://github.com/alpondith/listing/assets/31237736/c375d330-1769-4ad7-a59f-42fa5449458e" width="300"/>
